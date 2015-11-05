@@ -12,6 +12,12 @@ class Cmake < Formula
     sha256 "3bd5610ab7b6d248d1b9cc016e9ec89cbf146dea2fc3f1bf263f055d75a8a6b2" => :mavericks
   end
 
+  patch do
+    # skip bitness check (see https://cmake.org/Bug/view.php?id=15835)
+    url "https://gist.githubusercontent.com/d235j/695144126c2b9b8d5eec/raw/9c6f0a752c978ec35bd2ea9b423318b40120e78b/cmake-skip-archcheck.diff"
+    sha256 "ce0d53a362ac217680b11bef669d5992bc469a06e267e71075b1192f9ac88330"
+  end
+
   option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
